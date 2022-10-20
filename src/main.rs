@@ -1,6 +1,7 @@
 mod account;
+mod bank;
 mod document;
-use crate::account::open_account;
+use crate::bank::open_account;
 
 fn main() {
     let my_account = open_account(String::from("Enieber Cunha"), String::from("123"), 10.90);
