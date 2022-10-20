@@ -15,10 +15,4 @@ fn main() {
         Ok(account) => println!("{}", account.to_string()),
         Err(err) => println!("{}", err),
     }
-
-    let invalid_account = open_account(String::from("Marcelo "), String::from("1"), 90.60);
-    match invalid_account {
-        Ok(account) => println!("{}", account.to_string()),
-        Err(err) => println!("{}", err),
-    }
 }
