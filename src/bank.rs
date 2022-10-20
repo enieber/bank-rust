@@ -1,19 +1,19 @@
 use crate::account::*;
 use crate::document::Document;
 
-pub fn open_account(namer_owner: String, document: String, amount: f64) -> Result<Account, String> {
-    match Document::new(document) {
-        Some(doc) => {
-            let personal = Owner {
-                name: namer_owner,
-                document: doc,
+pub fn open_account(name: String, doc: String, amount: f64) -> Result<Account, String> {
+    match Document::new(doc) {
+        Some(document) => {
+            let owner = Owner {
+                name,
+                document,
             };
-            return Ok(Account {
-                amount: amount,
-                owner: personal,
-            });
+            Ok(Account {
+                amount,
+                owner,
+            })
         }
-        None => return Err(String::from("Document invalid")),
+        None => Err(String::from("Document invalid")),
     }
 }
 
