@@ -17,3 +17,4 @@ impl ToString for Account {
         return format!("The Owner {} has amount {}", &self.owner.name, &self.amount);
     }
 }
+

@@ -1,3 +1,7 @@
+extern crate cpf_cnpj;
+
+use cpf_cnpj::cpf;
+
 #[derive(Debug, PartialEq)]
 pub struct Document {
     str: String,
@@ -5,10 +9,10 @@ pub struct Document {
 
 impl Document {
     pub fn new(str: String) -> Option<Self> {
-        if str.chars().count() <= 1 {
-            None
-        } else {
+        if cpf::validate(&str) {
             Some(Document { str })
+        } else {
+            None
         }
     }
 }

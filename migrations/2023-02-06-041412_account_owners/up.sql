@@ -1,0 +1,14 @@
+
+CREATE TABLE owners (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  document VARCHAR NOT NULL
+);
+
+CREATE TABLE accounts (
+  id SERIAL PRIMARY KEY,
+  amount DECIMAL NOT NULL DEFAULT 0.00,
+  id_owner SERIAL,
+  FOREIGN KEY(id_owner) REFERENCES owners(id)
+);
+
