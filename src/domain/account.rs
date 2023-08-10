@@ -1,10 +1,22 @@
-use crate::document::*;
+pub struct Document {
+    str: String,
+}
+
+impl Document {
+    pub fn new(str: String) -> Option<Self> {
+        if str.chars().count() <= 1 {
+            None
+        } else {
+            Some(Document { str })
+        }
+    }
+}
 
 pub struct Personal {
     pub name: String,
     pub social_name: String,
     pub document: Document,
-    pub document_identification: String,
+    pub document_identification: DocumentIdentification,
     pub passport_number: String,
     pub parent_first: Parent,
     pub parent_last: Parent,

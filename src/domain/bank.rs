@@ -1,7 +1,7 @@
 pub struct Bank {
     pub compe: COMPE,
     pub ispb: ISPB,
-    pub document: String,
+    pub document: DocumentCompany,
     pub long_name: String,
     pub short_name: String,
     pub network: Option<String>,
@@ -20,11 +20,24 @@ pub struct Bank {
     pub date_updated: String,
 }
 
+pub struct DocumentCompany {
+    str: String,
+}
+
+impl DocumentCompany {
+    pub fn new(str: String) -> Option<Self> {
+        if str.chars().count() == 3 {
+            Some(DocumentCompany { str })
+        } else {
+            None
+        }
+    }
+}
+
 pub struct BankToTransfer {
     pub compe: COMPE,
 }
 
-#[derive(Debug, PartialEq)]
 pub struct COMPE {
     str: String,
 }
